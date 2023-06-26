@@ -1,0 +1,4 @@
+baseURL = 'http://www.forgottenprogramme.github.io/'
+languageCode = 'en-us'
+title = 'Mahe Iram Khan'
+theme = 'ananke'

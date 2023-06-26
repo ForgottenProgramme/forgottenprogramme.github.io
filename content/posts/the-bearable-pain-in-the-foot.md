@@ -2,6 +2,7 @@
 title: "The Bearable Pain in The Foot"
 date: 2023-06-19
 draft: false
+# read_more_copy: "Read more about kind friend."
 ---
 
 

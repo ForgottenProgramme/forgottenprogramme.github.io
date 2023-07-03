@@ -1,6 +1,7 @@
 ---
 title: "An Accidental Emending"
 date: "2021-10-12"
+show_reading_time: True
 ---
 Since coming back from my week long stay at grandmother’s village, my total mess of a sleep schedule has miraculously fixed itself.
 Perhaps this self emending is not too miraculous after all.  

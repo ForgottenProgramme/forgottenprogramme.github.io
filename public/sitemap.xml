@@ -2,37 +2,48 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://forgottenprogramme.github.io/raw-writing/beautiful-five-seconds/</loc>
-    <lastmod>2023-07-09T00:00:00+00:00</lastmod>
+    <loc>http://forgottenprogramme.github.io/life-blogs/</loc>
+    <lastmod>2023-06-19T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>http://forgottenprogramme.github.io/</loc>
-    <lastmod>2023-07-09T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>http://forgottenprogramme.github.io/raw-writing/</loc>
-    <lastmod>2023-07-09T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>http://forgottenprogramme.github.io/good-writings/</loc>
     <lastmod>2023-06-19T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://forgottenprogramme.github.io/good-writings/the-bearable-pain-in-the-foot/</loc>
+    <loc>http://forgottenprogramme.github.io/life-blogs/the-bearable-pain-in-the-foot/</loc>
     <lastmod>2023-06-19T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://forgottenprogramme.github.io/good-writings/an-accidental-emending/</loc>
+    <loc>http://forgottenprogramme.github.io/life-blogs/an-accidental-emending/</loc>
     <lastmod>2021-10-12T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://forgottenprogramme.github.io/work-writings/work/</loc>
+    <loc>http://forgottenprogramme.github.io/work-blogs/everybody-struggles/</loc>
+    <lastmod>2021-06-22T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://forgottenprogramme.github.io/work-blogs/</loc>
+    <lastmod>2021-06-22T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://forgottenprogramme.github.io/work-blogs/contributing-packages-to-conda-forge-using-grayskull/</loc>
+    <lastmod>2021-06-04T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://forgottenprogramme.github.io/work-blogs/my-core-values-and-outreachy/</loc>
+    <lastmod>2021-05-28T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://forgottenprogramme.github.io/work-blogs/my-outreachy-application/</loc>
+    <lastmod>2021-05-06T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -41,10 +52,6 @@
     <priority>0.5</priority>
   </url><url>
     <loc>http://forgottenprogramme.github.io/tags/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>http://forgottenprogramme.github.io/work-writings/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

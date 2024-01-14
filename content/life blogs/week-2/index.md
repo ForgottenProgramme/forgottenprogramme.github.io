@@ -1,7 +1,7 @@
 ---
 title: "Death, Food, and a Date"
 date: "2024-01-14"
-show_reading_time: "True"
+show_reading_time: True
 ---
 
 This week was quite hard for me. Nothing terrible happened. But what did happen was the birth of this agitating scare of death. It was a paralyzing fear. It still is, when my focus returns to it. I had never before thought of my death with such clarity and "nearness". 

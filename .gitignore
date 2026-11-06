@@ -1,0 +1,11 @@
+# Hugo build output (GitHub Actions builds and deploys the site)
+/public/
+/resources/_gen/
+/.hugo_build.lock
+
+# macOS
+.DS_Store
+
+# Editors
+.vscode/
+.idea/

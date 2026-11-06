@@ -288,10 +288,6 @@ html { scroll-behavior: smooth; }
   }
 }
 
-/* Topics section on the home page */
-.topics { margin-top: 3.5rem; }
-.topics .tags { margin: 1rem 0 0; font-size: 0.8rem; gap: 0.35rem 0.9rem; }
-
 @media (max-width: 34rem) {
   .post-list li { grid-template-columns: 1fr; }
   .post-list time { padding-top: 0; }

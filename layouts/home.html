@@ -15,16 +15,4 @@
     {{ $posts := where site.RegularPages "Section" "writing" }}
     {{ partial "post-list.html" (dict "pages" (first 2 $posts) "short" false) }}
   </section>
-
-  {{/* Browse by topic: every tag, with the number of posts */}}
-  {{ with site.Taxonomies.tags }}
-    <section class="topics">
-      <div class="section-head">
-        <h2 class="section-label">Topics</h2>
-      </div>
-      <p class="tags">
-        {{ range .Alphabetical }}<a href="{{ .Page.RelPermalink }}">{{ .Page.Data.Term }}</a>{{ end }}
-      </p>
-    </section>
-  {{ end }}
 {{ end }}

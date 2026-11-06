@@ -1,14 +1,28 @@
 {{ define "main" }}
+  {{ $years := .RegularPages.GroupByDate "2006" }}
   <header class="page-header">
     <h1>{{ .Title }}</h1>
     {{ with .Description }}<p class="lede">{{ . }}</p>{{ end }}
   </header>
 
-  {{/* Posts grouped by year, newest first */}}
-  {{ range .RegularPages.GroupByDate "2006" }}
-    <section class="year">
-      <h2 class="section-label">{{ .Key }}</h2>
-      {{ partial "post-list.html" (dict "pages" .Pages "short" true) }}
-    </section>
-  {{ end }}
+  <div class="archive">
+    {{/* Year menu: on the right on wide screens, a row above the list on small ones */}}
+    {{ if gt (len $years) 1 }}
+      <nav class="year-nav" aria-label="Browse by year">
+        <ul>
+          {{ range $years }}
+            <li><a href="#{{ .Key }}">{{ .Key }}</a></li>
+          {{ end }}
+        </ul>
+      </nav>
+    {{ end }}
+
+    {{/* Posts grouped by year, newest first */}}
+    {{ range $years }}
+      <section class="year" id="{{ .Key }}">
+        <h2 class="section-label">{{ .Key }}</h2>
+        {{ partial "post-list.html" (dict "pages" .Pages "short" true) }}
+      </section>
+    {{ end }}
+  </div>
 {{ end }}

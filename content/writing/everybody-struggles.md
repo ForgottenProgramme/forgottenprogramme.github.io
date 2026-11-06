@@ -4,7 +4,7 @@ date: 2021-06-22
 draft: false
 aliases: ["/work-blogs/everybody-struggles/"]
 description: "On waiting for the perfect moment to write, and an open source term I once didn't know."
-tags: ["work", "outreachy", "open-source", "writing"]
+tags: ["work", "open-source", "writings"]
 ---
 I have been delaying writing this Outreachy blog for over two weeks now. Aagghh! I kept thinking I’ll write it up when I have the perfect struggle story to share, when I am in the perfect mood to write. But that doesn’t happen.
 Waiting for ‘the inspiration’ to write is the best way to make sure that you never write at all.  

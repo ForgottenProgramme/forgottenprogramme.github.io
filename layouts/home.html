@@ -1,15 +1,30 @@
 {{ define "main" }}
-  <section class="intro">
+  {{/* Introduction. Edit the words in content/_index.md. */}}
+  <section class="hero">
+    {{/* Invisible to visitors; gives the page a proper top-level heading for screen readers and search engines */}}
     <h1 class="visually-hidden">{{ site.Title }}</h1>
-    {{ .Content }}
+    <div class="hero-text">{{ .Content }}</div>
   </section>
 
-  <section>
+  {{/* A small taste of the latest writing */}}
+  <section class="latest">
     <div class="section-head">
-      <h2 class="section-label">Recent writing</h2>
+      <h2 class="section-label">Latest writings</h2>
       <a href="{{ "writing/" | relURL }}">View all</a>
     </div>
     {{ $posts := where site.RegularPages "Section" "writing" }}
-    {{ partial "post-list.html" (dict "pages" (first 6 $posts) "short" false) }}
+    {{ partial "post-list.html" (dict "pages" (first 2 $posts) "short" false) }}
   </section>
+
+  {{/* Browse by topic: every tag, with the number of posts */}}
+  {{ with site.Taxonomies.tags }}
+    <section class="topics">
+      <div class="section-head">
+        <h2 class="section-label">Topics</h2>
+      </div>
+      <p class="tags">
+        {{ range .Alphabetical }}<a href="{{ .Page.RelPermalink }}">{{ .Page.Data.Term }}</a>{{ end }}
+      </p>
+    </section>
+  {{ end }}
 {{ end }}

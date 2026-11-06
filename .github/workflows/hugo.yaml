@@ -33,7 +33,6 @@ jobs:
     runs-on: ubuntu-latest
     env:
       # Keep in sync with the Hugo you run locally (`hugo version`).
-      # The Ananke theme (v2.19) requires Hugo >= 0.160.0.
       HUGO_VERSION: 0.169.0
     steps:
       - name: Install Hugo CLI
@@ -43,7 +42,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v7
         with:
-          submodules: recursive
           fetch-depth: 0
       - name: Setup Pages
         id: pages

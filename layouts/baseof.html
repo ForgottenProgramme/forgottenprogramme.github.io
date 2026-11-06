@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="{{ site.Language.Locale }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} · {{ site.Title }}{{ end }}</title>
+  <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ if .IsPage }}{{ .Summary | plainify | truncate 160 }}{{ else }}{{ site.Params.description }}{{ end }}{{ end }}">
+  <link rel="canonical" href="{{ .Permalink }}">
+
+  {{/* Stylesheet: all the styling lives in assets/css/style.css */}}
+  {{ with resources.Get "css/style.css" | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}">
+  {{ end }}
+
+  {{/* Icons */}}
+  <link rel="icon" href="{{ "favicon.svg" | relURL }}" type="image/svg+xml">
+  <link rel="icon" href="{{ "favicon.ico" | relURL }}" sizes="48x48">
+  <link rel="icon" href="{{ "favicon-32x32.png" | relURL }}" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="{{ "apple-touch-icon.png" | relURL }}">
+  <meta name="theme-color" content="#001b44">
+
+  {{/* Link previews (LinkedIn, Slack, WhatsApp, etc.): Hugo's built-in Open Graph template */}}
+  {{ partial "opengraph.html" . }}
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="site-title" href="{{ "/" | relURL }}">{{ site.Title }}</a>
+      <nav aria-label="Main">
+        {{ range site.Menus.main }}
+          {{ $active := and (ne .URL "/") (hasPrefix $.RelPermalink .URL) }}
+          <a href="{{ .URL }}"{{ if $active }} aria-current="page"{{ end }}>{{ .Name }}</a>
+        {{ end }}
+      </nav>
+    </div>
+  </header>
+
+  <main id="content" class="wrap">
+    {{ block "main" . }}{{ end }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p class="footer-links">
+        {{ range site.Params.social }}
+          <a href="{{ .url }}" rel="me noopener">{{ .name }}</a>
+        {{ end }}
+      </p>
+      <p class="copyright">&copy; {{ now.Year }} {{ site.Title }}</p>
+    </div>
+  </footer>
+</body>
+</html>

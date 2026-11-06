@@ -1,0 +1,15 @@
+{{ define "main" }}
+  <section class="intro">
+    <h1 class="visually-hidden">{{ site.Title }}</h1>
+    {{ .Content }}
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2 class="section-label">Recent writing</h2>
+      <a href="{{ "writing/" | relURL }}">View all</a>
+    </div>
+    {{ $posts := where site.RegularPages "Section" "writing" }}
+    {{ partial "post-list.html" (dict "pages" (first 6 $posts) "short" false) }}
+  </section>
+{{ end }}

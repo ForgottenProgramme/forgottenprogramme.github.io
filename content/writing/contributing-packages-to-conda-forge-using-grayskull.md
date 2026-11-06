@@ -2,8 +2,9 @@
 title: "Contributing Packages To conda-forge Using Grayskull"
 date: 2021-06-04
 draft: false
+aliases: ["/work-blogs/contributing-packages-to-conda-forge-using-grayskull/"]
 description: "A step-by-step tutorial on contributing a Python package to conda-forge using Grayskull."
-tags: ["conda-forge", "open-source", "tutorial", "outreachy"]
+tags: ["work", "conda-forge", "open-source", "tutorial", "outreachy"]
 ---
 
 When contributing packages to conda-forge, Grayskull can make your life much easier.

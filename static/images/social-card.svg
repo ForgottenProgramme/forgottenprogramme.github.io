@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <rect width="1200" height="630" fill="#faf8f5"/>
-  <rect x="80" y="80" width="64" height="4" fill="#8a6f5a"/>
-  <text x="80" y="300" font-family="Georgia, 'Times New Roman', serif" font-size="96" fill="#2b2b2b">Mahe Iram Khan</text>
-  <text x="80" y="372" font-family="Georgia, 'Times New Roman', serif" font-size="40" font-style="italic" fill="#8a6f5a">I post my writings here.</text>
-  <text x="80" y="550" font-family="Georgia, 'Times New Roman', serif" font-size="30" fill="#7a7a7a">forgottenprogramme.github.io</text>
+  <rect width="1200" height="630" fill="#f4efe6"/>
+  <rect width="1200" height="18" fill="#001b44"/>
+  <text x="80" y="300" font-family="Georgia, 'Times New Roman', serif" font-size="96" fill="#1c2540">Mahe Iram Khan</text>
+  <text x="80" y="372" font-family="Georgia, 'Times New Roman', serif" font-size="40" font-style="italic" fill="#1f3c88">I post my writings here.</text>
+  <text x="80" y="550" font-family="Georgia, 'Times New Roman', serif" font-size="30" fill="#5a6177">forgottenprogramme.github.io</text>
 </svg>

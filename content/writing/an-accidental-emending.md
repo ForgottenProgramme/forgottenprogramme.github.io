@@ -2,6 +2,7 @@
 title: "An Accidental Emending"
 date: 2021-10-12
 draft: false
+aliases: ["/life-blogs/an-accidental-emending/"]
 description: "How a week at my grandmother's village quietly fixed my sleep schedule."
 tags: ["life", "family", "nature"]
 show_reading_time: true

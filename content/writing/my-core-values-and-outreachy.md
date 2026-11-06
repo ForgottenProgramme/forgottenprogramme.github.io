@@ -2,8 +2,9 @@
 title: "My Core Values and Outreachy"
 date: 2021-05-28
 draft: false
+aliases: ["/work-blogs/my-core-values-and-outreachy/"]
 description: "My core values, and my motivation for applying to Outreachy."
-tags: ["outreachy", "open-source", "values"]
+tags: ["work", "outreachy", "open-source", "values"]
 ---
 
 In my previous blog I wrote about the Outreachy application process and my experience during the contribution period.  

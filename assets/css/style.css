@@ -1,0 +1,375 @@
+/* ==========================================================================
+   Site stylesheet. Everything about the look lives in this one file.
+
+   Quick tweaks:
+   - Colours ........ the variables just below (beige page, navy accents)
+   - Reading width .. --measure
+   - Fonts .......... --serif (text) and --sans (dates, nav, small labels)
+   ========================================================================== */
+
+:root {
+  color-scheme: light;  /* always beige and navy, whatever the reader's system setting */
+
+  --bg: #f4efe6;        /* beige page */
+  --text: #1c2540;      /* deep navy-tinted text */
+  --muted: #5a6177;     /* dates, descriptions, footer */
+  --accent: #1f3c88;    /* navy blue: links and small highlights */
+  --navy: #001b44;      /* header bar */
+  --rule: #ddd5c6;      /* thin dividers */
+  --code-bg: #ebe4d6;
+
+  --serif: Georgia, "Iowan Old Style", "Palatino Linotype", Palatino, "Times New Roman", serif;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --measure: 38rem;     /* width of the text column */
+}
+
+/* ---------- Base ---------- */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--serif);
+  font-size: clamp(1.05rem, 1rem + 0.25vw, 1.2rem);
+  line-height: 1.7;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main { flex: 1; padding-bottom: 4rem; }
+
+.wrap {
+  width: 100%;
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+a {
+  color: var(--accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+a:hover { text-decoration-thickness: 2px; }
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+::selection { background: var(--accent); color: var(--bg); }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem; top: -4rem;
+  background: var(--bg);
+  padding: 0.5rem 0.75rem;
+  z-index: 10;
+}
+.skip-link:focus { top: 1rem; }
+
+/* ---------- Header & navigation ---------- */
+
+.site-header {
+  background: var(--navy);
+  color: var(--bg);
+  padding: 1.4rem 0;
+  margin-bottom: 1rem;
+}
+
+.header-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+}
+
+.site-title {
+  color: var(--bg);
+  /* same typeface as the rest of the text (--serif), just larger */
+  font-size: clamp(1.3rem, 1.15rem + 0.6vw, 1.5rem);
+  text-decoration: none;
+  letter-spacing: 0.01em;
+}
+
+.site-header nav { display: flex; gap: 1.5rem; }
+
+.site-header nav a {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #cfd3de;
+  text-decoration: none;
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
+}
+.site-header nav a:hover { color: var(--bg); }
+.site-header nav a[aria-current="page"] {
+  color: var(--bg);
+  border-bottom-color: var(--bg);
+}
+
+/* focus rings on the navy bar need a light colour */
+.site-header :focus-visible { outline-color: var(--bg); }
+
+/* ---------- Page headings ---------- */
+
+h1, h2, h3, h4 { line-height: 1.25; font-weight: 400; }
+
+.page-header { margin: 2.5rem 0 2rem; }
+
+.page-header h1 {
+  font-size: clamp(1.9rem, 1.5rem + 1.6vw, 2.5rem);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.meta, .eyebrow {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin: 0.75rem 0 0;
+}
+.eyebrow { margin: 0 0 0.5rem; text-transform: uppercase; letter-spacing: 0.06em; }
+.eyebrow a { color: var(--muted); text-decoration: none; }
+.eyebrow a:hover { color: var(--text); }
+
+.lede { color: var(--muted); font-style: italic; margin: 0.75rem 0 0; }
+
+.section-label {
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+/* ---------- Home ---------- */
+
+.intro { margin: 2.5rem 0 3.5rem; font-size: 1.25em; line-height: 1.6; }
+.intro p { margin: 0; }
+
+/* "Recent writing ........ View all": label left, link right, one rule beneath */
+.section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid var(--rule);
+}
+.section-head .section-label { border-bottom: 0; margin: 0; }
+.section-head a {
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  padding-bottom: 0.5rem;
+}
+.section-head a:hover { color: var(--accent); text-decoration: underline; }
+
+/* ---------- Lists of posts ---------- */
+
+.post-list { list-style: none; margin: 0; padding: 0; }
+
+.post-list li {
+  display: grid;
+  grid-template-columns: 7rem 1fr;
+  gap: 0 1rem;
+  padding: 0.7rem 0;
+}
+
+.post-list time {
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  color: var(--muted);
+  white-space: nowrap;
+  padding-top: 0.35em;
+  font-variant-numeric: tabular-nums;
+}
+
+.post-title {
+  display: inline-block;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 1.1em;
+  line-height: 1.4;
+}
+.post-title:hover { color: var(--accent); text-decoration: underline; }
+
+.post-desc {
+  margin: 0.1rem 0 0;
+  color: var(--muted);
+  font-size: 0.9em;
+  line-height: 1.5;
+}
+
+.year { margin-bottom: 2.5rem; }
+
+@media (max-width: 34rem) {
+  .post-list li { grid-template-columns: 1fr; }
+  .post-list time { padding-top: 0; }
+}
+
+/* ---------- Tags ---------- */
+
+.tag-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+}
+.tag-list a { text-decoration: none; }
+.tag-list a:hover { text-decoration: underline; }
+.count {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-left: 0.2rem;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1rem;
+  margin: 3rem 0 0;
+  font-family: var(--sans);
+  font-size: 0.85rem;
+}
+.tags a { color: var(--muted); text-decoration: none; }
+.tags a::before { content: "#"; }
+.tags a:hover { color: var(--accent); text-decoration: underline; }
+
+/* ---------- Article content ---------- */
+
+.content > :first-child { margin-top: 0; }
+.content p, .content ul, .content ol, .content blockquote, .content pre, .content figure {
+  margin: 0 0 1.35em;
+}
+
+.content h2 { font-size: 1.5rem; margin: 2.4em 0 0.6em; }
+.content h3 { font-size: 1.25rem; margin: 2em 0 0.5em; }
+.content h4 { font-size: 1.05rem; font-style: italic; margin: 1.6em 0 0.4em; }
+
+.content ul, .content ol { padding-left: 1.4rem; }
+.content li { margin-bottom: 0.4em; }
+
+.content blockquote {
+  padding-left: 1.25rem;
+  border-left: 2px solid var(--accent);
+  color: var(--muted);
+  font-style: italic;
+}
+.content blockquote p:last-child { margin-bottom: 0; }
+
+.content img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 2rem auto;
+  border-radius: 3px;
+}
+
+.content hr {
+  border: 0;
+  border-top: 1px solid var(--rule);
+  margin: 2.5rem auto;
+  width: 30%;
+}
+
+.content code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.85em;
+  background: var(--code-bg);
+  padding: 0.12em 0.35em;
+  border-radius: 3px;
+}
+.content pre {
+  background: var(--code-bg);
+  padding: 1rem 1.1rem;
+  border-radius: 4px;
+  overflow-x: auto;
+  line-height: 1.5;
+}
+.content pre code { background: none; padding: 0; font-size: 0.82em; }
+
+.content table { border-collapse: collapse; margin: 0 0 1.35em; width: 100%; font-size: 0.95em; }
+.content th, .content td { text-align: left; padding: 0.5rem 0.75rem; border-bottom: 1px solid var(--rule); }
+
+/* ---------- Newer / older ---------- */
+
+.post-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule);
+}
+.post-nav a { color: var(--text); text-decoration: none; line-height: 1.4; }
+.post-nav a:hover { color: var(--accent); }
+.post-nav span {
+  display: block;
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.2rem;
+}
+.post-nav .older { text-align: right; grid-column: 2; }
+.post-nav .newer { grid-column: 1; }
+
+@media (max-width: 34rem) {
+  .post-nav { grid-template-columns: 1fr; }
+  .post-nav .older, .post-nav .newer { grid-column: 1; text-align: left; }
+}
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  padding: 1.75rem 0 2.5rem;
+  border-top: 1px solid var(--rule);
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+}
+.site-footer p { margin: 0; }
+.footer-links { display: flex; flex-wrap: wrap; gap: 0.25rem 1.25rem; }
+.site-footer a { color: var(--muted); text-decoration: none; }
+.site-footer a:hover { color: var(--text); text-decoration: underline; }

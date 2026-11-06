@@ -1,47 +1,64 @@
 baseURL = 'https://forgottenprogramme.github.io/'
 locale = 'en-us'
 title = 'Mahe Iram Khan'
-theme = 'ananke'
 
 DefaultContentLanguage = "en"
-SectionPagesMenu = "main"
 enableRobotsTXT = true
+
+# Only tags (no categories)
+[taxonomies]
+  tag = "tags"
 
 [pagination]
   pagerSize = 10
 
-[languages]
-  [languages.en]
-    title = "Mahe Iram Khan"
-    weight = 1
-    contentDir = "content"
-    # languageDirection = 'rtl' for Right-To-Left languages
+# No RSS feeds: generate plain web pages only
+[outputs]
+  home = ["html"]
+  section = ["html"]
+  taxonomy = ["html"]
+  term = ["html"]
 
 [sitemap]
   changefreq = "monthly"
   priority = 0.5
   filename = "sitemap.xml"
 
+[markup]
+  [markup.goldmark.renderer]
+    # allow raw HTML such as <br> inside posts
+    unsafe = true
+  [markup.highlight]
+    # keep code blocks plain and quiet (styled in assets/css/style.css)
+    noClasses = false
+    guessSyntax = false
+
 [params]
-  text_color = ""
-  author = ""
-  favicon = ""
-  site_logo = ""
   description = "I post my writings here."
-  # Default social-card image (Open Graph / Twitter), relative to /static
+  # Default social-card image (Open Graph link previews), relative to /static
   images = ["images/social-card.png"]
-  # choose a background color from any on this page: https://tachyons.io/docs/themes/skins/ and preface it with "bg-"
-  background_color_class = "bg-navy"
-  # recent_posts_number = 3
 
-[[params.ananke_socials]]
-name = "twitter"
-url = "https://twitter.com/IramMahe"    
+# Header navigation. Edit, reorder (weight) or add links here.
+[[menus.main]]
+  name = "Writing"
+  pageRef = "/writing"
+  weight = 10
 
-[[params.ananke_socials]]
-name="github"
-url="https://github.com/ForgottenProgramme"
+[[menus.main]]
+  name = "Tags"
+  pageRef = "/tags"
+  weight = 20
 
-[[params.ananke_socials]]
-name= "linkedin"
-url="https://www.linkedin.com/in/irammahe/"
+[[menus.main]]
+  name = "About"
+  pageRef = "/about"
+  weight = 30
+
+# Footer links
+[[params.social]]
+  name = "GitHub"
+  url = "https://github.com/ForgottenProgramme"
+
+[[params.social]]
+  name = "LinkedIn"
+  url = "https://www.linkedin.com/in/irammahe/"

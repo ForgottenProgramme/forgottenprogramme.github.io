@@ -2,6 +2,7 @@
 title: "The Bearable Pain in The Foot"
 date: 2023-06-19
 draft: false
+aliases: ["/life-blogs/the-bearable-pain-in-the-foot/"]
 description: "A winter walk through Berlin's Tiergarten, a twisted ankle, and a friend who felt like meeting myself."
 tags: ["life", "friendship", "berlin", "books"]
 show_reading_time: true

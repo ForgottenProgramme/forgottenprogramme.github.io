@@ -2,6 +2,7 @@
 title: "Guillotine, Flowers, and Mandala"
 date: 2024-01-07
 draft: false
+aliases: ["/life-blogs/week-1/"]
 description: "My first week of 2024: flowers, a university anthem, Camus on the guillotine, mandalas and homemade potpourri."
 tags: ["life", "weeknotes", "books", "art"]
 show_reading_time: true

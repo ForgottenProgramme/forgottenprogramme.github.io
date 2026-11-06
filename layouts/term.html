@@ -1,0 +1,9 @@
+{{/* The posts for one tag (e.g. /tags/life/) */}}
+{{ define "main" }}
+  <header class="page-header">
+    <p class="eyebrow"><a href="{{ "tags/" | relURL }}">Tag</a></p>
+    <h1>{{ .Data.Term }}</h1>
+  </header>
+
+  {{ partial "post-list.html" (dict "pages" .Pages "short" false) }}
+{{ end }}

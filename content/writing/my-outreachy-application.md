@@ -2,8 +2,9 @@
 title: "My Outreachy Application"
 date: 2021-05-06
 draft: false
+aliases: ["/work-blogs/my-outreachy-application/"]
 description: "How I applied to Outreachy, nearly gave up, and ran the whole course anyway."
-tags: ["outreachy", "open-source", "conda-forge"]
+tags: ["work", "outreachy", "open-source", "conda-forge"]
 ---
 
 Last year my initial application at Outreachy was rejected because I had submitted it on the last day.  

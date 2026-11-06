@@ -1,0 +1,33 @@
+{{ define "main" }}
+  {{ $isPost := eq .Section "writing" }}
+  <article class="{{ if $isPost }}post{{ else }}page{{ end }}">
+    <header class="page-header">
+      <h1>{{ .Title }}</h1>
+      {{ if $isPost }}
+        <p class="meta">
+          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+          <span aria-hidden="true">&middot;</span>
+          {{ .ReadingTime }} min read
+        </p>
+      {{ end }}
+    </header>
+
+    <div class="content">
+      {{ .Content }}
+    </div>
+
+    {{ if $isPost }}
+      {{ with .GetTerms "tags" }}
+        <p class="tags">
+          {{ range . }}<a href="{{ .RelPermalink }}">{{ .Data.Term }}</a>{{ end }}
+        </p>
+      {{ end }}
+
+      <nav class="post-nav" aria-label="Other posts">
+        {{/* Posts are sorted newest first, so "next in section" is the newer one. */}}
+        {{ with .NextInSection }}<a class="newer" href="{{ .RelPermalink }}"><span>Newer</span>{{ .Title }}</a>{{ end }}
+        {{ with .PrevInSection }}<a class="older" href="{{ .RelPermalink }}"><span>Older</span>{{ .Title }}</a>{{ end }}
+      </nav>
+    {{ end }}
+  </article>
+{{ end }}

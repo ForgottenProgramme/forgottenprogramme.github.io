@@ -6,7 +6,6 @@ aliases: ["/life-blogs/the-bearable-pain-in-the-foot/"]
 description: "A winter walk through Berlin's Tiergarten, a twisted ankle, and a friend who felt like meeting myself."
 tags: ["life", "friendship", "berlin", "books"]
 show_reading_time: true
-# read_more_copy: "Read more about kind friend."
 ---
 
 

@@ -12,7 +12,8 @@
       <h2 class="section-label">Latest writings</h2>
       <a href="{{ "writing/" | relURL }}">View all</a>
     </div>
-    {{ $posts := where site.RegularPages "Section" "writing" }}
+    {{/* Only the main writings; Daily Writing Practice pieces live in a sub-section and are left out */}}
+    {{ $posts := (site.GetPage "/writing").RegularPages }}
     {{ partial "post-list.html" (dict "pages" (first 2 $posts) "short" false) }}
   </section>
 {{ end }}

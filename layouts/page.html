@@ -2,6 +2,9 @@
   {{ $isPost := eq .Section "writing" }}
   <article class="{{ if $isPost }}post{{ else }}page{{ end }}">
     <header class="page-header">
+      {{ if .CurrentSection.Params.daily }}
+        <p class="eyebrow"><a href="{{ .CurrentSection.RelPermalink }}">{{ .CurrentSection.Title }}</a></p>
+      {{ end }}
       <h1>{{ .Title }}</h1>
       {{ if $isPost }}
         <p class="meta">

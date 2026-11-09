@@ -87,6 +87,37 @@ a:hover { text-decoration-thickness: 2px; }
 }
 .skip-link:focus { top: 1rem; }
 
+/* ---------- Picture strip ----------
+   Put a picture at assets/images/side-strip.jpg to turn this on.
+   Small screens: a short banner across the top.
+   Wide screens: a tall strip down the left edge. Change the width below. */
+
+.side-strip {
+  display: block;
+  width: 100%;
+  height: 8rem;
+  object-fit: cover;
+  object-position: 52% 50%;   /* which part of the picture stays in view: left-right, top-bottom */
+}
+
+@media (min-width: 66rem) {
+  .side-strip {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 20vw;      /* how wide the strip is */
+    height: 100vh;
+    z-index: 5;
+  }
+
+  /* The navy bar sits on top of the strip, so the picture starts below it */
+  .site-header {
+    position: relative;
+    z-index: 6;
+  }
+}
+
 /* ---------- Header & navigation ---------- */
 
 .site-header {
@@ -221,6 +252,8 @@ h1, h2, h3, h4 { line-height: 1.25; font-weight: 400; }
   padding: 0.7rem 0;
 }
 
+.post-list li.date-only { grid-template-columns: 1fr; padding: 0.4rem 0; }
+
 .post-list time {
   font-family: var(--sans);
   font-size: 0.82rem;
@@ -254,6 +287,11 @@ html { scroll-behavior: smooth; }
 
 .archive { position: relative; }
 
+/* Daily Writing Practice group at the bottom of the Writings page */
+.daily-note { margin: 0.7rem 0 0.4rem; color: var(--muted); font-size: 0.95em; line-height: 1.5; }
+.daily-more { margin: 0.4rem 0 0; font-size: 0.95em; }
+
+
 .year-nav ul {
   list-style: none;
   margin: 0 0 1.5rem;
@@ -269,14 +307,15 @@ html { scroll-behavior: smooth; }
 .year-nav a:hover { text-decoration: underline; }
 
 /* Wide screens: float the menu in the right margin, beside the text column */
-@media (min-width: 60rem) {
+@media (min-width: 62rem) {
   .year-nav {
     position: absolute;
     top: 0;
     bottom: 0;
     left: calc(100% + 1.5rem);
-    width: 5rem;
+    width: 9rem;
   }
+  .year-nav li.daily { line-height: 1.35; }
   .year-nav ul {
     position: sticky;
     top: 1.5rem;

@@ -1,0 +1,15 @@
+{{/* Daily Writing Practice: a compact list, newest first, grouped by month */}}
+{{ define "main" }}
+  <header class="page-header">
+    <p class="eyebrow"><a href="{{ "writing/" | relURL }}">Writings</a></p>
+    <h1>{{ .Title }}</h1>
+    {{ with .Description }}<p class="lede">{{ . }}</p>{{ end }}
+  </header>
+
+  {{ range .Pages.GroupByDate "January 2006" }}
+    <section class="year">
+      <h2 class="section-label">{{ .Key }}</h2>
+      {{ partial "post-list.html" (dict "pages" .Pages "short" true) }}
+    </section>
+  {{ end }}
+{{ end }}

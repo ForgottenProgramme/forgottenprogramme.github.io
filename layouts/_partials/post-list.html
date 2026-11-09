@@ -2,12 +2,17 @@
   A plain list of posts: date, title and (optional) one-line description.
   Usage: {{ partial "post-list.html" (dict "pages" .Pages "short" false) }}
   "short" = true shows only "Jun 22" (use under a year heading).
+  A piece whose title is just its own date (Daily Writing Practice) shows the title only,
+  so the date is not repeated.
 */}}
 {{ $format := cond (.short | default false) "Jan 2" "Jan 2, 2006" }}
 <ul class="post-list">
   {{ range .pages }}
-    <li>
-      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format $format }}</time>
+    {{ $dateAsTitle := eq .Title (.Date.Format "Monday, 2 January 2006") }}
+    <li{{ if $dateAsTitle }} class="date-only"{{ end }}>
+      {{ if not $dateAsTitle }}
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format $format }}</time>
+      {{ end }}
       <div>
         <a class="post-title" href="{{ .RelPermalink }}">{{ .Title }}</a>
         {{ with .Description }}<p class="post-desc">{{ . }}</p>{{ end }}

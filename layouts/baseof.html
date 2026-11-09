@@ -26,6 +26,16 @@
 <body>
   <a class="skip-link" href="#content">Skip to content</a>
 
+  {{/* Picture strip: shown if a file named side-strip.jpg (or .png / .webp) is in assets/images/.
+       A tall strip down the left on wide screens, a short banner across the top on small ones. */}}
+  {{ with resources.Match "images/side-strip.*" }}
+    {{ with index . 0 }}
+      {{/* Shrink big pictures to at most 1200px wide; never enlarge small ones */}}
+      {{ $img := .Resize (printf "%dx q80" (int (math.Min .Width 1200))) }}
+      <img class="side-strip" src="{{ $img.RelPermalink }}" width="{{ $img.Width }}" height="{{ $img.Height }}" alt="" aria-hidden="true">
+    {{ end }}
+  {{ end }}
+
   <header class="site-header">
     <div class="wrap header-inner">
       <a class="site-title" href="{{ "/" | relURL }}">{{ site.Title }}</a>

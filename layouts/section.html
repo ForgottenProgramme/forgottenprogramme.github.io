@@ -1,17 +1,24 @@
 {{ define "main" }}
   {{ $years := .RegularPages.GroupByDate "2006" }}
+  {{ $daily := site.GetPage "/writing/daily" }}
   <header class="page-header">
     <h1>{{ .Title }}</h1>
     {{ with .Description }}<p class="lede">{{ . }}</p>{{ end }}
   </header>
 
   <div class="archive">
-    {{/* Year menu: on the right on wide screens, a row above the list on small ones */}}
-    {{ if gt (len $years) 1 }}
+    {{/* Menu: the years, then Daily Writing Practice below the oldest year.
+         On the right on wide screens, a row above the list on small ones */}}
+    {{ if or $daily (gt (len $years) 1) }}
       <nav class="year-nav" aria-label="Browse by year">
         <ul>
-          {{ range $years }}
-            <li><a href="#{{ .Key }}">{{ .Key }}</a></li>
+          {{ if gt (len $years) 1 }}
+            {{ range $years }}
+              <li><a href="#{{ .Key }}">{{ .Key }}</a></li>
+            {{ end }}
+          {{ end }}
+          {{ with $daily }}
+            <li class="daily"><a href="#daily">{{ .Title }}</a></li>
           {{ end }}
         </ul>
       </nav>
@@ -22,6 +29,22 @@
       <section class="year" id="{{ .Key }}">
         <h2 class="section-label">{{ .Key }}</h2>
         {{ partial "post-list.html" (dict "pages" .Pages "short" true) }}
+      </section>
+    {{ end }}
+
+    {{/* Daily Writing Practice: the most recent pieces, below the oldest year */}}
+    {{ with $daily }}
+      <section class="year" id="daily">
+        <h2 class="section-label">{{ .Title }}</h2>
+        {{ with .Description }}<p class="daily-note">{{ . }}</p>{{ end }}
+        {{ if .Pages }}
+          {{ partial "post-list.html" (dict "pages" (first 5 .Pages) "short" true) }}
+          {{ if gt (len .Pages) 5 }}
+            <p class="daily-more"><a href="{{ .RelPermalink }}">See all {{ len .Pages }} &rarr;</a></p>
+          {{ end }}
+        {{ else }}
+          <p class="daily-note">Nothing here yet.</p>
+        {{ end }}
       </section>
     {{ end }}
   </div>

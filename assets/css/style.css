@@ -110,12 +110,6 @@ a:hover { text-decoration-thickness: 2px; }
     height: 100vh;
     z-index: 5;
   }
-
-  /* The navy bar sits on top of the strip, so the picture starts below it */
-  .site-header {
-    position: relative;
-    z-index: 6;
-  }
 }
 
 /* ---------- Header & navigation ---------- */

@@ -41,8 +41,9 @@
       <a class="site-title" href="{{ "/" | relURL }}">{{ site.Title }}</a>
       <nav aria-label="Main">
         {{ range site.Menus.main }}
+          {{/* Don't show a link to the page you are already on */}}
           {{ $active := and (ne .URL "/") (hasPrefix $.RelPermalink .URL) }}
-          <a href="{{ .URL }}"{{ if $active }} aria-current="page"{{ end }}>{{ .Name }}</a>
+          {{ if not $active }}<a href="{{ .URL }}">{{ .Name }}</a>{{ end }}
         {{ end }}
       </nav>
     </div>
